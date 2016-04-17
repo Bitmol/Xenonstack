@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Discover - Kibana</title><link href="Kibana_stats_files/commons.css" rel="stylesheet" async=""><link href="Kibana_stats_files/kibana.css" rel="stylesheet" async=""><script src="Kibana_stats_files/commons.js" async=""></script><script src="Kibana_stats_files/kibana.js" async=""></script><link rel="shortcut icon" href="http://localhost:5601/bundles/src/ui/public/images/elk.ico"><style id="ace_editor.css">.ace_editor {	position: relative;	overflow: hidden;	font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;	direction: ltr;	}	.ace_scroller {	position: absolute;	overflow: hidden;	top: 0;	bottom: 0;	background-color: inherit;	-ms-user-select: none;	-moz-user-select: none;	-webkit-user-select: none;	user-select: none;	cursor: text;	}	.ace_content {	position: absolute;	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	min-width: 100%;	}	.ace_dragging .ace_scroller:before{	position: absolute;	top: 0;	left: 0;	right: 0;	bottom: 0;	content: '';	background: rgba(250, 250, 250, 0.01);	z-index: 1000;	}	.ace_dragging.ace_dark .ace_scroller:before{	background: rgba(0, 0, 0, 0.01);	}	.ace_selecting, .ace_selecting * {	cursor: text !important;	}	.ace_gutter {	position: absolute;	overflow : hidden;	width: auto;	top: 0;	bottom: 0;	left: 0;	cursor: default;	z-index: 4;	-ms-user-select: none;	-moz-user-select: none;	-webkit-user-select: none;	user-select: none;	}	.ace_gutter-active-line {	position: absolute;	left: 0;	right: 0;	}	.ace_scroller.ace_scroll-left {	box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;	}	.ace_gutter-cell {	padding-left: 19px;	padding-right: 6px;	background-repeat: no-repeat;	}	.ace_gutter-cell.ace_error {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");	background-repeat: no-repeat;	background-position: 2px center;	}	.ace_gutter-cell.ace_warning {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");	background-position: 2px center;	}	.ace_gutter-cell.ace_info {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");	background-position: 2px center;	}	.ace_dark .ace_gutter-cell.ace_info {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");	}	.ace_scrollbar {	position: absolute;	right: 0;	bottom: 0;	z-index: 6;	}	.ace_scrollbar-inner {	position: absolute;	cursor: text;	left: 0;	top: 0;	}	.ace_scrollbar-v{	overflow-x: hidden;	overflow-y: scroll;	top: 0;	}	.ace_scrollbar-h {	overflow-x: scroll;	overflow-y: hidden;	left: 0;	}	.ace_print-margin {	position: absolute;	height: 100%;	}	.ace_text-input {	position: absolute;	z-index: 0;	width: 0.5em;	height: 1em;	opacity: 0;	background: transparent;	-moz-appearance: none;	appearance: none;	border: none;	resize: none;	outline: none;	overflow: hidden;	font: inherit;	padding: 0 1px;	margin: 0 -1px;	text-indent: -1em;	-ms-user-select: text;	-moz-user-select: text;	-webkit-user-select: text;	user-select: text;	}	.ace_text-input.ace_composition {	background: inherit;	color: inherit;	z-index: 1000;	opacity: 1;	text-indent: 0;	}	.ace_layer {	z-index: 1;	position: absolute;	overflow: hidden;	word-wrap: normal;	white-space: pre;	height: 100%;	width: 100%;	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	pointer-events: none;	}	.ace_gutter-layer {	position: relative;	width: auto;	text-align: right;	pointer-events: auto;	}	.ace_text-layer {	font: inherit !important;	}	.ace_cjk {	display: inline-block;	text-align: center;	}	.ace_cursor-layer {	z-index: 4;	}	.ace_cursor {	z-index: 4;	position: absolute;	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	border-left: 2px solid	}	.ace_slim-cursors .ace_cursor {	border-left-width: 1px;	}	.ace_overwrite-cursors .ace_cursor {	border-left-width: 0;	border-bottom: 1px solid;	}	.ace_hidden-cursors .ace_cursor {	opacity: 0.2;	}	.ace_smooth-blinking .ace_cursor {	-webkit-transition: opacity 0.18s;	transition: opacity 0.18s;	}	.ace_editor.ace_multiselect .ace_cursor {	border-left-width: 1px;	}	.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {	position: absolute;	z-index: 3;	}	.ace_marker-layer .ace_selection {	position: absolute;	z-index: 5;	}	.ace_marker-layer .ace_bracket {	position: absolute;	z-index: 6;	}	.ace_marker-layer .ace_active-line {	position: absolute;	z-index: 2;	}	.ace_marker-layer .ace_selected-word {	position: absolute;	z-index: 4;	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	}	.ace_line .ace_fold {	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	display: inline-block;	height: 11px;	margin-top: -2px;	vertical-align: middle;	background-image:	url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),	url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");	background-repeat: no-repeat, repeat-x;	background-position: center center, top left;	color: transparent;	border: 1px solid black;	border-radius: 2px;	cursor: pointer;	pointer-events: auto;	}	.ace_dark .ace_fold {	}	.ace_fold:hover{	background-image:	url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),	url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");	}	.ace_tooltip {	background-color: #FFF;	background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));	background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));	border: 1px solid gray;	border-radius: 1px;	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);	color: black;	max-width: 100%;	padding: 3px 4px;	position: fixed;	z-index: 999999;	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	cursor: default;	white-space: pre;	word-wrap: break-word;	line-height: normal;	font-style: normal;	font-weight: normal;	letter-spacing: normal;	pointer-events: none;	}	.ace_folding-enabled > .ace_gutter-cell {	padding-right: 13px;	}	.ace_fold-widget {	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;	margin: 0 -12px 0 1px;	display: none;	width: 11px;	vertical-align: top;	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");	background-repeat: no-repeat;	background-position: center;	border-radius: 3px;	border: 1px solid transparent;	cursor: pointer;	}	.ace_folding-enabled .ace_fold-widget {	display: inline-block;   	}	.ace_fold-widget.ace_end {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");	}	.ace_fold-widget.ace_closed {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");	}	.ace_fold-widget:hover {	border: 1px solid rgba(0, 0, 0, 0.3);	background-color: rgba(255, 255, 255, 0.2);	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);	}	.ace_fold-widget:active {	border: 1px solid rgba(0, 0, 0, 0.4);	background-color: rgba(0, 0, 0, 0.05);	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);	}	.ace_dark .ace_fold-widget {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");	}	.ace_dark .ace_fold-widget.ace_end {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");	}	.ace_dark .ace_fold-widget.ace_closed {	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");	}	.ace_dark .ace_fold-widget:hover {	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);	background-color: rgba(255, 255, 255, 0.1);	}	.ace_dark .ace_fold-widget:active {	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);	}	.ace_fold-widget.ace_invalid {	background-color: #FFB4B4;	border-color: #DE5555;	}	.ace_fade-fold-widgets .ace_fold-widget {	-webkit-transition: opacity 0.4s ease 0.05s;	transition: opacity 0.4s ease 0.05s;	opacity: 0;	}	.ace_fade-fold-widgets:hover .ace_fold-widget {	-webkit-transition: opacity 0.05s ease 0.05s;	transition: opacity 0.05s ease 0.05s;	opacity:1;	}	.ace_underline {	text-decoration: underline;	}	.ace_bold {	font-weight: bold;	}	.ace_nobold .ace_bold {	font-weight: normal;	}	.ace_italic {	font-style: italic;	}	.ace_error-marker {	background-color: rgba(255, 0, 0,0.2);	position: absolute;	z-index: 9;	}	.ace_highlight-marker {	background-color: rgba(255, 255, 0,0.2);	position: absolute;	z-index: 8;	}	</style><style id="ace-tm">.ace-tm .ace_gutter {	background: #f0f0f0;	color: #333;	}	.ace-tm .ace_print-margin {	width: 1px;	background: #e8e8e8;	}	.ace-tm .ace_fold {	background-color: #6B72E6;	}	.ace-tm {	background-color: #FFFFFF;	color: black;	}	.ace-tm .ace_cursor {	color: black;	}	.ace-tm .ace_invisible {	color: rgb(191, 191, 191);	}	.ace-tm .ace_storage,	.ace-tm .ace_keyword {	color: blue;	}	.ace-tm .ace_constant {	color: rgb(197, 6, 11);	}	.ace-tm .ace_constant.ace_buildin {	color: rgb(88, 72, 246);	}	.ace-tm .ace_constant.ace_language {	color: rgb(88, 92, 246);	}	.ace-tm .ace_constant.ace_library {	color: rgb(6, 150, 14);	}	.ace-tm .ace_invalid {	background-color: rgba(255, 0, 0, 0.1);	color: red;	}	.ace-tm .ace_support.ace_function {	color: rgb(60, 76, 114);	}	.ace-tm .ace_support.ace_constant {	color: rgb(6, 150, 14);	}	.ace-tm .ace_support.ace_type,	.ace-tm .ace_support.ace_class {	color: rgb(109, 121, 222);	}	.ace-tm .ace_keyword.ace_operator {	color: rgb(104, 118, 135);	}	.ace-tm .ace_string {	color: rgb(3, 106, 7);	}	.ace-tm .ace_comment {	color: rgb(76, 136, 107);	}	.ace-tm .ace_comment.ace_doc {	color: rgb(0, 102, 255);	}	.ace-tm .ace_comment.ace_doc.ace_tag {	color: rgb(128, 159, 191);	}	.ace-tm .ace_constant.ace_numeric {	color: rgb(0, 0, 205);	}	.ace-tm .ace_variable {	color: rgb(49, 132, 149);	}	.ace-tm .ace_xml-pe {	color: rgb(104, 104, 91);	}	.ace-tm .ace_entity.ace_name.ace_function {	color: #0000A2;	}	.ace-tm .ace_heading {	color: rgb(12, 7, 255);	}	.ace-tm .ace_list {	color:rgb(185, 6, 144);	}	.ace-tm .ace_meta.ace_tag {	color:rgb(0, 22, 142);	}	.ace-tm .ace_string.ace_regex {	color: rgb(255, 0, 0)	}	.ace-tm .ace_marker-layer .ace_selection {	background: rgb(181, 213, 255);	}	.ace-tm.ace_multiselect .ace_selection.ace_start {	box-shadow: 0 0 3px 0px white;	border-radius: 2px;	}	.ace-tm .ace_marker-layer .ace_step {	background: rgb(252, 255, 0);	}	.ace-tm .ace_marker-layer .ace_stack {	background: rgb(164, 229, 101);	}	.ace-tm .ace_marker-layer .ace_bracket {	margin: -1px 0 0 -1px;	border: 1px solid rgb(192, 192, 192);	}	.ace-tm .ace_marker-layer .ace_active-line {	background: rgba(0, 0, 0, 0.07);	}	.ace-tm .ace_gutter-active-line {	background-color : #dcdcdc;	}	.ace-tm .ace_marker-layer .ace_selected-word {	background: rgb(250, 250, 255);	border: 1px solid rgb(200, 200, 250);	}	.ace-tm .ace_indent-guide {	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;	}	</style><style>	    .error_widget_wrapper {	        background: inherit;	        color: inherit;	        border:none	    }	    .error_widget {	        border-top: solid 2px;	        border-bottom: solid 2px;	        margin: 5px 0;	        padding: 10px 40px;	        white-space: pre-wrap;	    }	    .error_widget.ace_error, .error_widget_arrow.ace_error{	        border-color: #ff5a5a	    }	    .error_widget.ace_warning, .error_widget_arrow.ace_warning{	        border-color: #F1D817	    }	    .error_widget.ace_info, .error_widget_arrow.ace_info{	        border-color: #5a5a5a	    }	    .error_widget.ace_ok, .error_widget_arrow.ace_ok{	        border-color: #5aaa5a	    }	    .error_widget_arrow {	        position: absolute;	        border: solid 5px;	        border-top-color: transparent!important;	        border-right-color: transparent!important;	        border-left-color: transparent!important;	        top: -5px;	    }	</style><style id="style-compile">.truncate-by-height {
+  max-height: 115px !important;
+  display: inline-block;
+}
+.truncate-by-height:before {
+  top: 100px;
+}
+</style><style type="text/css">.gridster [data-col="13"] { left:1275px; }
+.gridster [data-col="12"] { left:1169.1666666666665px; }
+.gridster [data-col="11"] { left:1063.3333333333333px; }
+.gridster [data-col="10"] { left:957.5px; }
+.gridster [data-col="9"] { left:851.6666666666666px; }
+.gridster [data-col="8"] { left:745.8333333333333px; }
+.gridster [data-col="7"] { left:640px; }
+.gridster [data-col="6"] { left:534.1666666666666px; }
+.gridster [data-col="5"] { left:428.3333333333333px; }
+.gridster [data-col="4"] { left:322.5px; }
+.gridster [data-col="3"] { left:216.66666666666666px; }
+.gridster [data-col="2"] { left:110.83333333333333px; }
+.gridster [data-col="1"] { left:5px; }
+.gridster [data-row="16"] { top:1655px; }
+.gridster [data-row="15"] { top:1545px; }
+.gridster [data-row="14"] { top:1435px; }
+.gridster [data-row="13"] { top:1325px; }
+.gridster [data-row="12"] { top:1215px; }
+.gridster [data-row="11"] { top:1105px; }
+.gridster [data-row="10"] { top:995px; }
+.gridster [data-row="9"] { top:885px; }
+.gridster [data-row="8"] { top:775px; }
+.gridster [data-row="7"] { top:665px; }
+.gridster [data-row="6"] { top:555px; }
+.gridster [data-row="5"] { top:445px; }
+.gridster [data-row="4"] { top:335px; }
+.gridster [data-row="3"] { top:225px; }
+.gridster [data-row="2"] { top:115px; }
+.gridster [data-row="1"] { top:5px; }
+.gridster [data-sizey="1"] { height:100px; }
+.gridster [data-sizey="2"] { height:210px; }
+.gridster [data-sizey="3"] { height:320px; }
+.gridster [data-sizey="4"] { height:430px; }
+.gridster [data-sizey="5"] { height:540px; }
+.gridster [data-sizey="6"] { height:650px; }
+.gridster [data-sizey="7"] { height:760px; }
+.gridster [data-sizey="8"] { height:870px; }
+.gridster [data-sizey="9"] { height:980px; }
+.gridster [data-sizey="10"] { height:1090px; }
+.gridster [data-sizey="11"] { height:1200px; }
+.gridster [data-sizey="12"] { height:1310px; }
+.gridster [data-sizey="13"] { height:1420px; }
+.gridster [data-sizey="14"] { height:1530px; }
+.gridster [data-sizey="15"] { height:1640px; }
+.gridster [data-sizex="1"] { width:95.83333333333333px; }
+.gridster [data-sizex="2"] { width:201.66666666666666px; }
+.gridster [data-sizex="3"] { width:307.5px; }
+.gridster [data-sizex="4"] { width:413.3333333333333px; }
+.gridster [data-sizex="5"] { width:519.1666666666666px; }
+.gridster [data-sizex="6"] { width:625px; }
+.gridster [data-sizex="7"] { width:730.8333333333333px; }
+.gridster [data-sizex="8"] { width:836.6666666666666px; }
+.gridster [data-sizex="9"] { width:942.5px; }
+.gridster [data-sizex="10"] { width:1048.3333333333333px; }
+.gridster [data-sizex="11"] { width:1154.1666666666665px; }
+.gridster [data-sizex="12"] { width:1260px; }
+</style></head><body kbn-chrome="" id="kibana-body"><div list="notifList" class="toaster-container ng-isolate-scope">
+  <ul class="toaster">
+    <!-- ngRepeat: notif in list -->
+  </ul>
+</div>
+<div class="content" chrome-context="">
+  <nav style="background: rgb(34, 34, 34) none repeat scroll 0% 0%;" ng-style="::{ background: chrome.getNavBackground() }" ng-class="{ show: chrome.getVisible() }" class="hide navbar navbar-inverse navbar-static-top show">
+
+    <!-- Mobile navbar -->
+    <div class="navbar-header">
+      <button ng-click="showCollapsed = !showCollapsed" type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="visible-xs">
+        <!-- ngIf: chrome.getBrand('title') -->
+        <!-- ngIf: chrome.getActiveTabTitle() --><span ng-if="chrome.getActiveTabTitle()" class="navbar-brand ng-binding ng-scope">Discover</span><!-- end ngIf: chrome.getActiveTabTitle() -->
+        <span ng-show="chrome.httpActive.length" class="spinner ng-hide"><div class="bounce1"></div> <div class="bounce2"></div> <div class="bounce3"></div></span>
+      </span>
+    </div>
+    <!-- /Mobile navbar -->
+
+    <!-- Full navbar -->
+    <div style="height: 0px;" collapse="!showCollapsed" class="navbar-collapse collapse" kbn-chrome-append-nav-controls=""><!-- nav control timepicker toggle -->
+<ul ng-show="timefilter.enabled" class="nav navbar-nav navbar-right navbar-timepicker">
+  <li>
+    <a class="" ng-click="toggleRefresh()" ng-show="timefilter.refreshInterval.value &gt; 0">
+
+      <i class="fa fa-pause" ng-class="timefilter.refreshInterval.pause ? 'fa-play' : 'fa-pause'"></i>
+    </a>
+  </li>
+
+  <li ng-class="{active: pickerTemplate.is('interval') }" ng-show="timefilter.refreshInterval.value &gt; 0 || !!pickerTemplate.current" class="to-body">
+
+    <a ng-click="pickerTemplate.toggle('interval')" class="navbar-timepicker-auto-refresh-desc">
+      <span class="ng-hide" ng-show="timefilter.refreshInterval.value === 0"><i class="fa fa-repeat"></i> Auto-refresh</span>
+      <span class="ng-binding" ng-show="timefilter.refreshInterval.value &gt; 0">5 seconds</span>
+    </a>
+
+  </li>
+
+  <li class="to-body" ng-class="{active: pickerTemplate.is('filter')}">
+    <a ng-click="pickerTemplate.toggle('filter')" aria-haspopup="true" aria-expanded="false" class="navbar-timepicker-time-desc">
+      <i aria-hidden="true" class="fa fa-clock-o"></i>
+      <pretty-duration class="ng-isolate-scope" from="timefilter.time.from" to="timefilter.time.to">Last 15 minutes</pretty-duration>
+    </a>
+  </li>
+</ul>
+
+<!-- nav control active http requests -->
+<ul class="nav navbar-nav navbar-right navbar-timepicker">
+  <li ng-show="chrome.httpActive.length" class="navbar-text hidden-xs ng-hide">
+    <div class="spinner"><div class="bounce1"></div> <div class="bounce2"></div> <div class="bounce3"></div></div>
+  </li>
+</ul>
+
+
+      <ul class="nav navbar-nav" role="navigation">
+        <!-- ngIf: chrome.getBrand('logo') --><li style="background: transparent url(&quot;/bundles/src/ui/public/images/kibana.svg&quot;) no-repeat scroll left center;" ng-if="chrome.getBrand('logo')" ng-style="{ 'background': chrome.getBrand('logo') }" aria-label="Kibana Logo" class="logo hidden-sm ng-scope"></li><!-- end ngIf: chrome.getBrand('logo') -->
+
+        <!-- ngIf: chrome.getBrand('smallLogo') --><li style="background: transparent url(&quot;/bundles/src/ui/public/images/kibana.svg&quot;) no-repeat scroll left center;" ng-if="chrome.getBrand('smallLogo')" ng-style="{ 'background': chrome.getBrand('smallLogo') }" aria-label="Kibana Logo" class="logo-small visible-sm hidden-xs ng-scope"></li><!-- end ngIf: chrome.getBrand('smallLogo') -->
+
+        <!-- ngIf: chrome.getBrand('title') -->
+
+        <!-- ngRepeat: tab in chrome.getTabs() --><li class="ng-scope active" ng-repeat="tab in chrome.getTabs()" ng-class="{ active: tab.active }">
+          <a style="border-bottom-color: rgb(101, 106, 118);" href="http://localhost:5601/app/kibana#/discover" class="ng-binding" ng-href="http://localhost:5601/app/kibana#/discover" ng-style="{ 'border-bottom-color': tab.activeIndicatorColor }">
+            Discover
+          </a>
+        </li><!-- end ngRepeat: tab in chrome.getTabs() --><li class="ng-scope" ng-repeat="tab in chrome.getTabs()" ng-class="{ active: tab.active }">
+          <a style="border-bottom-color: rgb(101, 106, 118);" href="http://localhost:5601/app/kibana#/visualize/create?type=pie&amp;indexPattern=topbeat-*&amp;_g=%28refreshInterval%3A%28display%3A%275%20seconds%27%2Cpause%3A%21f%2Csection%3A1%2Cvalue%3A5000%29%2Ctime%3A%28from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow%29%29&amp;_a=%28filters%3A%21%28%29%2Clinked%3A%21f%2Cquery%3A%28query_string%3A%28analyze_wildcard%3A%21t%2Cquery%3A%27*%27%29%29%2CuiState%3A%28%29%2Cvis%3A%28aggs%3A%21%28%28id%3A%271%27%2Cparams%3A%28%29%2Cschema%3Ametric%2Ctype%3Acount%29%29%2Clisteners%3A%28%29%2Cparams%3A%28addLegend%3A%21t%2CaddTooltip%3A%21t%2CisDonut%3A%21f%2CshareYAxis%3A%21t%29%2Ctitle%3A%27New%20Visualization%27%2Ctype%3Apie%29%29" class="ng-binding" ng-href="http://localhost:5601/app/kibana#/visualize/create?type=pie&amp;indexPattern=topbeat-*&amp;_g=(refreshInterval%3A(display%3A'5%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A5000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))&amp;_a=(filters%3A!()%2Clinked%3A!f%2Cquery%3A(query_string%3A(analyze_wildcard%3A!t%2Cquery%3A'*'))%2CuiState%3A()%2Cvis%3A(aggs%3A!((id%3A'1'%2Cparams%3A()%2Cschema%3Ametric%2Ctype%3Acount))%2Clisteners%3A()%2Cparams%3A(addLegend%3A!t%2CaddTooltip%3A!t%2CisDonut%3A!f%2CshareYAxis%3A!t)%2Ctitle%3A'New%20Visualization'%2Ctype%3Apie))" ng-style="{ 'border-bottom-color': tab.activeIndicatorColor }">
+            Visualize
+          </a>
+        </li><!-- end ngRepeat: tab in chrome.getTabs() --><li class="ng-scope" ng-repeat="tab in chrome.getTabs()" ng-class="{ active: tab.active }">
+          <a style="border-bottom-color: rgb(101, 106, 118);" href="http://localhost:5601/app/kibana#/dashboard?_g=%28refreshInterval%3A%28display%3A%275%20seconds%27%2Cpause%3A%21f%2Csection%3A1%2Cvalue%3A5000%29%2Ctime%3A%28from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow%29%29" class="ng-binding" ng-href="http://localhost:5601/app/kibana#/dashboard?_g=(refreshInterval%3A(display%3A'5%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A5000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))" ng-style="{ 'border-bottom-color': tab.activeIndicatorColor }">
+            Dashboard
+          </a>
+        </li><!-- end ngRepeat: tab in chrome.getTabs() --><li class="ng-scope" ng-repeat="tab in chrome.getTabs()" ng-class="{ active: tab.active }">
+          <a style="border-bottom-color: rgb(101, 106, 118);" href="http://localhost:5601/app/kibana#/settings/indices/topbeat-*?_g=%28refreshInterval%3A%28display%3A%275%20seconds%27%2Cpause%3A%21f%2Csection%3A1%2Cvalue%3A5000%29%2Ctime%3A%28from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow%29%29&amp;_a=%28tab%3AindexedFields%29" class="ng-binding" ng-href="http://localhost:5601/app/kibana#/settings/indices/topbeat-*?_g=(refreshInterval%3A(display%3A'5%20seconds'%2Cpause%3A!f%2Csection%3A1%2Cvalue%3A5000)%2Ctime%3A(from%3Anow-15m%2Cmode%3Aquick%2Cto%3Anow))&amp;_a=(tab%3AindexedFields)" ng-style="{ 'border-bottom-color': tab.activeIndicatorColor }">
+            Settings
+          </a>
+        </li><!-- end ngRepeat: tab in chrome.getTabs() -->
+
+        <!-- ngIf: chrome.getShowAppsLink() -->
+      </ul>
+    </div>
+    <!-- /Full navbar -->
+  </nav>
+
+  <!-- TODO: These config dropdowns shouldn't be hard coded -->
+  <config class="ng-isolate-scope" config-template="appSwitcherTemplate" config-object="chrome" config-close="appSwitcherTemplate.close"></config>
+
+  <config class="ng-isolate-scope" ng-show="timefilter.enabled" config-template="pickerTemplate" config-object="timefilter" config-close="pickerTemplate.close"></config>
+
+  <!-- ngView:  --><div ng-controller="chrome.$$rootControllerConstruct as kibana" class="application ng-scope tab-discover theme-light" ng-class="'tab-' + chrome.getActiveTabId('-none-') + ' ' + chrome.getApplicationClasses()" ng-view=""><div ng-controller="discover" class="app-container ng-scope">
+  <navbar>
+    <form role="form" class="fill inline-form ng-pristine ng-valid" ng-submit="fetch()" name="discoverSearch">
+      <div class="typeahead ng-isolate-scope" kbn-typeahead="discover">
+        <div class="input-group" ng-class="discoverSearch.$invalid ? 'has-error' : ''">
+          <input value="*" autocomplete="off" parse-query="" input-focus="" kbn-typeahead-input="" ng-model="state.query" placeholder="Search..." aria-label="Search input" class="form-control ng-pristine ng-valid ng-isolate-scope ng-touched" type="text">
+          <button type="submit" ng-disabled="discoverSearch.$invalid" aria-label="Search">
+            <span aria-hidden="true" class="fa fa-search"></span></button>
+        </div>
+        <div ng-show="typeahead.isVisible()" ng-mouseenter="typeahead.setMouseover(true);" ng-mouseleave="typeahead.setMouseover(false);" class="typeahead-items ng-hide">
+
+  <!-- ngRepeat: item in typeahead.getItems() -->
+</div>
+      </div>
+    </form>
+
+    <div class="button-group" role="toolbar">
+      <span class="ng-scope" text="New Search" placement="bottom" append-to-body="1" tooltip="New Search" tooltip-placement="bottom" tooltip-popup-delay="400" tooltip-append-to-body="1" ng-transclude="">
+        <button class="ng-scope" ng-click="newQuery()" aria-label="New Search">
+          <i aria-hidden="true" class="fa fa-file-new-o"></i>
+        </button>
+      </span>
+      <span class="ng-scope" text="Save Search" placement="bottom" append-to-body="1" tooltip="Save Search" tooltip-placement="bottom" tooltip-popup-delay="400" tooltip-append-to-body="1" ng-transclude="">
+        <button class="ng-scope" ng-click="configTemplate.toggle('save');" ng-class="{active: configTemplate.is('save')}" aria-haspopup="true" aria-expanded="false" aria-label="Save Search">
+          <i aria-hidden="true" class="fa fa-save"></i>
+        </button>
+      </span>
+      <span class="ng-scope" text="Load Saved Search" placement="bottom" append-to-body="1" tooltip="Load Saved Search" tooltip-placement="bottom" tooltip-popup-delay="400" tooltip-append-to-body="1" ng-transclude="">
+        <button class="ng-scope" aria-haspopup="true" aria-expanded="false" ng-click="configTemplate.toggle('load');" ng-class="{active: configTemplate.is('load')}" aria-label="Load Saved Search">
+          <i aria-hidden="true" class="fa fa-folder-open-o"></i>
+        </button>
+      </span>
+      <span class="ng-scope" text="Share" placement="bottom" append-to-body="1" tooltip="Share" tooltip-placement="bottom" tooltip-popup-delay="400" tooltip-append-to-body="1" ng-transclude="">
+        <button class="ng-scope" aria-label="Share Search" aria-haspopup="true" aria-expanded="false" ng-class="{active: configTemplate.is('share')}" ng-click="configTemplate.toggle('share');">
+          <i aria-hidden="true" class="fa fa-external-link"></i>
+        </button>
+      </span>
+    </div>
+  </navbar>
+
+  <config class="ng-isolate-scope" config-template="configTemplate" config-object="opts" config-close="configClose"></config>
+
+  <div class="container-fluid" role="main">
+    <div class="row">
+      <filter-bar class="ng-isolate-scope" state="state"><div class="confirm ng-hide" ng-show="newFilters.length">
+  <form class="ng-pristine ng-valid" ng-submit="applyFilters(newFilters)">
+  <ul class="list-unstyled">
+    <li>Apply these filters?</li>
+    <!-- ngRepeat: filter in newFilters -->
+    <!-- ngIf: changeTimeFilter -->
+    <li><button class="btn btn-xs btn-primary">Apply Now</button> or <a ng-click="clearFilterBar();">Cancel</a></li>
+  </ul>
+  </form>
+</div>
+
+<div class="bar ng-hide" ng-show="filters.length">
+  <!-- ngRepeat: filter in filters -->
+
+  <!-- ngIf: editingFilter -->
+
+  <div class="filter-link">
+    <div class="filter-description small">
+      <a ng-click="showFilterActions = !showFilterActions">
+        Actions
+        <i class="fa fa-caret-right" ng-class="{'fa-caret-down': showFilterActions, 'fa-caret-right': !showFilterActions}"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="bar bar-condensed ng-hide" ng-show="filters.length &amp;&amp; showFilterActions">
+  <div class="filter-actions-all">
+    <div class="filter-link">
+      <div class="filter-description"><strong>All filters:</strong></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="toggleAll(false)">Enable</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="toggleAll(true)">Disable</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="pinAll(true)">Pin</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="pinAll(false)">Unpin</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="invertAll()">Invert</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="toggleAll()">Toggle</a></div>
+    </div>
+    <div class="filter-link">
+      <div class="filter-description"><a ng-click="removeAll()">Remove</a></div>
+    </div>
+  </div>
+</div>
+</filter-bar>
+    </div>
+    <div class="row">
+      <div class="col-md-2 sidebar-container collapsible-sidebar">
+        <disc-field-chooser class="ng-isolate-scope" columns="state.columns" refresh="refreshFieldList" hits="rows" field-counts="fieldCounts" filter="filterQuery" index-pattern="searchSource.get('index')" index-pattern-list="opts.indexPatternList" state="state"><div class="sidebar-list">
+  <div class="ng-hide" ng-show="indexPatternList.length &gt; 1">
+    <div class="index-pattern" ng-click="showIndexPatternSelection = !showIndexPatternSelection">
+      <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; word-break: break-all;" class="ng-binding ng-isolate-scope" css-truncate="" title="topbeat-*">topbeat-*</div>
+      <i ng-hide="showIndexPatternSelection" class="fa fa-caret-down"></i>
+      <i ng-show="showIndexPatternSelection" class="fa fa-caret-up ng-hide"></i>
+    </div>
+    <div class="ng-hide" ng-show="showIndexPatternSelection">
+      <ul class="list-unstyled sidebar-item index-pattern-selection">
+        <!-- ngRepeat: id in indexPatternList | orderBy --><li style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; word-break: break-all;" css-truncate="" class="sidebar-item-title ng-binding ng-scope ng-isolate-scope ng-hide" title="topbeat-*" ng-repeat="id in indexPatternList | orderBy" ng-show="indexPattern.id != id" ng-click="setIndexPattern(id)">topbeat-*</li><!-- end ngRepeat: id in indexPatternList | orderBy -->
+      </ul>
+      <div ng-click="showIndexPatternSelection = !showIndexPatternSelection" class="discover-field-details-close">
+        <i class="fa fa-chevron-up"></i>
+      </div>
+    </div>
+  </div>
+  <div ng-hide="indexPatternList.length &gt; 1">
+    <div class="index-pattern">
+      <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; word-break: break-all;" class="ng-binding ng-isolate-scope" css-truncate="">topbeat-*</div>
+    </div>
+  </div>
+
+  <div class="sidebar-list-header">
+    <h5>Selected Fields</h5>
+  </div>
+  <ul class="list-unstyled discover-selected-fields">
+    <!-- ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="type">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="type" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>type</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="beat.hostname">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="beat.hostname" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>beat.hostname</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="proc.cpu.start_time">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cpu.start_time" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>proc.cpu.start_time</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="fs.files">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.files" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.files</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="_id">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="_id" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>_id</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} --><li ng-repeat="field in fields.raw|filter:{display:true}" class="sidebar-item ng-scope" attr-field="_score">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="_score" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>_score</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding btn-danger">remove</button>
+      </div>
+    </li><!-- end ngRepeat: field in fields.raw|filter:{display:true} -->
+  </ul>
+
+  <div class="sidebar-list-header sidebar-item">
+    <h5>Available Fields
+      <i ng-class="{ 'fa-chevron-right': !showFields, 'fa-chevron-down': showFields }" ng-click="showFields = !showFields" aria-hidden="true" class="fa visible-xs visible-sm pull-right field-collapse-toggle fa-chevron-right"></i>
+      <button ng-class="{ 'btn-default': !filter.active, 'btn-success': filter.active, 'hidden-xs': !showFields, 'hidden-sm': !showFields }" class="btn btn-xs btn-default pull-right discover-field-filter-toggle hidden-xs hidden-sm" ng-click="showFilter = !showFilter" aria-label="Field Settings" aria-haspopup="true" aria-expanded="">
+        <i aria-hidden="true" class="fa fa-gear"></i>
+      </button>
+    </h5>
+  </div>
+
+  <div class="sidebar-item ng-hide" ng-show="showFilter">
+    <div ng-click="showFilter = !showFilter" class="discover-field-details-close">
+        <i aria-hidden="true" class="fa fa-chevron-up"></i>
+    </div>
+    <form role="form" class="discover-field-details ng-pristine ng-valid">
+      <div class="form-group">
+        <label>
+          Analyzed
+        </label>
+        <select ng-options="opt.value as opt.label for opt in filter.boolOpts" ng-model="filter.vals.analyzed" class="form-control ng-pristine ng-untouched ng-valid"><option selected="selected" value="undefined:undefined" label="any">any</option><option value="boolean:true" label="yes">yes</option><option value="boolean:false" label="no">no</option></select>
+      </div>
+      <div class="form-group">
+        <label>
+          Indexed
+        </label>
+        <select ng-options="opt.value as opt.label for opt in filter.boolOpts" ng-model="filter.vals.indexed" class="form-control ng-pristine ng-untouched ng-valid"><option selected="selected" value="undefined:undefined" label="any">any</option><option value="boolean:true" label="yes">yes</option><option value="boolean:false" label="no">no</option></select>
+      </div>
+      <div class="form-group">
+        <label>
+          Type
+        </label>
+        <select ng-options="field as field for field in fieldTypes" ng-model="filter.vals.type" class="form-control ng-pristine ng-untouched ng-valid"><option selected="selected" value="undefined:undefined" label="undefined"></option><option value="string:number" label="number">number</option><option value="string:string" label="string">string</option><option value="string:date" label="date">date</option><option value="string:_source" label="_source">_source</option></select>
+      </div>
+      <div class="form-group">
+        <label>
+          Field name
+        </label>
+        <input class="form-control ng-pristine ng-untouched ng-valid" ng-model="filter.vals.name" type="text">
+      </div>
+      <div class="form-group">
+        <label>
+          <input checked="checked" class="ng-pristine ng-untouched ng-valid" ng-model="filter.vals.missing" type="checkbox">
+          Hide Missing Fields
+        </label>
+      </div>
+    </form>
+    <div disabled="disabled" ng-click="filter.reset()" ng-disabled="!filter.active" class="sidebar-item-button danger ng-scope">
+      Reset Filters
+    </div>
+  </div>
+
+  <ul ng-show="(popularFields | filter:filter.isFieldFiltered).length &gt; 0" ng-class="{ 'hidden-sm': !showFields, 'hidden-xs': !showFields }" class="list-unstyled sidebar-well discover-popular-fields hidden-sm hidden-xs">
+    <li class="sidebar-item sidebar-list-header">
+      <h6>Popular</h6>
+    </li>
+    <!-- ngRepeat: field in popularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in popularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.idle">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.idle" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.idle</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in popularFields | filter:filter.isFieldFiltered -->
+  </ul>
+
+  <ul ng-class="{ 'hidden-sm': !showFields, 'hidden-xs': !showFields  }" class="list-unstyled discover-unpopular-fields hidden-sm hidden-xs">
+    <!-- ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="@timestamp">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="@timestamp" class="ng-isolate-scope" field="field"><i class="fa fa-clock-o"></i>@timestamp</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="_index">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="_index" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>_index</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="_type">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="_type" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>_type</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="beat.name">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="beat.name" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>beat.name</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="count">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="count" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>count</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.iowait">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.iowait" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.iowait</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.irq">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.irq" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.irq</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.nice">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.nice" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.nice</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.softirq">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.softirq" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.softirq</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.steal">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.steal" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.steal</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.system">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.system" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.system</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.system_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.system_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.system_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.user">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.user" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.user</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="cpu.user_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="cpu.user_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>cpu.user_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.avail">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.avail" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.avail</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.device_name">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.device_name" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>fs.device_name</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.free">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.free" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.free</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.free_files">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.free_files" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.free_files</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.mount_point">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.mount_point" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>fs.mount_point</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.total">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.total" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.total</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.used">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.used" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.used</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="fs.used_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="fs.used_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>fs.used_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="load.load1">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="load.load1" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>load.load1</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="load.load15">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="load.load15" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>load.load15</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="load.load5">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="load.load5" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>load.load5</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.actual_free">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.actual_free" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.actual_free</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.actual_used">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.actual_used" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.actual_used</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.actual_used_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.actual_used_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.actual_used_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.free">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.free" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.free</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.total">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.total" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.total</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.used">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.used" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.used</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="mem.used_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="mem.used_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>mem.used_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.cmdline">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cmdline" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>proc.cmdline</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.cpu.system">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cpu.system" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.cpu.system</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.cpu.total">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cpu.total" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.cpu.total</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.cpu.user">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cpu.user" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.cpu.user</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.cpu.user_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.cpu.user_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.cpu.user_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.mem.rss">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.mem.rss" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.mem.rss</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.mem.rss_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.mem.rss_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.mem.rss_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.mem.share">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.mem.share" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.mem.share</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.mem.size">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.mem.size" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.mem.size</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.name">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.name" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>proc.name</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.pid">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.pid" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.pid</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.ppid">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.ppid" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>proc.ppid</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.state">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.state" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>proc.state</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="proc.username">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="proc.username" class="ng-isolate-scope" field="field"><i><strong>t</strong></i>proc.username</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="swap.free">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="swap.free" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>swap.free</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="swap.total">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="swap.total" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>swap.total</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="swap.used">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="swap.used" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>swap.used</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered --><li ng-repeat="field in unpopularFields | filter:filter.isFieldFiltered" class="sidebar-item ng-scope" attr-field="swap.used_p">
+      <div ng-click="toggleDetails(field)" class="sidebar-item-title">
+        <field-name title="swap.used_p" class="ng-isolate-scope" field="field"><i><strong>#</strong></i>swap.used_p</field-name>
+        <button ng-click="toggleDisplay(field)" ng-class="::field.display ? 'btn-danger' : 'btn-primary'" ng-bind="::field.display ? 'remove' : 'add'" class="btn btn-xs btn-primary discover-field-toggle ng-binding">add</button>
+      </div>
+    </li><!-- end ngRepeat: field in unpopularFields | filter:filter.isFieldFiltered -->
+  </ul>
+
+</div>
+</disc-field-chooser>
+      <div class="sidebar-collapser"><div class="chevron-cont"></div></div></div>
+
+      <div class="discover-wrapper col-md-10">
+
+        <div class="discover-info">
+          <span ng-show="opts.savedSearch.id" class="discover-info-title ng-hide">
+            <span class="ng-binding" ng-bind="::opts.savedSearch.title">New Saved Search</span>
+            <i aria-label="Reload Saved Search" tooltip="Reload Saved Search" ng-click="resetQuery();" class="fa fa-undo small"></i>
+          </span>
+
+          <strong class="discover-info-hits ng-binding">1,775</strong>
+          <ng-pluralize count="hits" when="{'1':'hit', 'other':'hits'}">hits</ng-pluralize>
+        </div>
+
+        <div class="discover-content">
+          <!-- no results -->
+          <div class="ng-hide" ng-show="resultState === 'none'">
+              <div class="col-md-10 col-md-offset-1">
+
+                <h1>No results found <i aria-hidden="true" class="fa fa-meh-o"></i></h1>
+
+                <p>
+                  Unfortunately I could not find any results matching 
+your search. I tried really hard. I looked all over the place and 
+frankly, I just couldn't find anything good. Help me, help you. Here are
+ some ideas:
+                </p>
+
+                <div class="shard-failures ng-hide" ng-show="failures">
+                  <h3>Shard Failures</h3>
+                  <p>The following shard failures ocurred:</p>
+                  <ul>
+                    <!-- ngRepeat: failure in failures | limitTo: failuresShown -->
+                  </ul>
+                  <!-- ngIf: failures.length > failuresShown -->
+                  <!-- ngIf: failures.length === failuresShown && failures.length > 5 -->
+                </div>
+
+                <div ng-show="opts.timefield">
+                  <p>
+                    </p><h3>Expand your time range</h3>
+                    <p>I see you are looking at an index with a date 
+field. It is possible your query does not match anything in the current 
+time range, or that there is no data at all in the currently selected 
+time range. Click the button below to open the time picker. For future 
+reference you can open the time picker by clicking the <a class="btn btn-xs navbtn" ng-click="toggleTimepicker(); toggledTimepicker = !toggledTimepicker" aria-expanded="" aria-label="time picker">time picker <i aria-hidden="true" class="fa fa-clock-o"></i></a> in the top right corner of your screen.
+                  </p>
+                </div>
+
+                <h3>Refine your query</h3>
+                <p>
+                  The search bar at the top uses Elasticsearch's support for Lucene <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax" target="_blank">Query String syntax</a>. Let's say we're searching web server logs that have been parsed into a few fields.
+                </p>
+
+                <p>
+                  </p><h4>Examples:</h4>
+                  Find requests that contain the number 200, in any field:
+                  <pre>200</pre>
+
+                  Or we can search in a specific field. Find 200 in the status field:
+                  <pre>status:200</pre>
+
+                  Find all status codes between 400-499:
+                  <pre>status:[400 TO 499]</pre>
+
+                  Find status codes 400-499 with the extension php:
+                  <pre>status:[400 TO 499] AND extension:PHP</pre>
+
+                  Or HTML
+                  <pre>status:[400 TO 499] AND (extension:php OR extension:html)</pre>
+                <p></p>
+
+              </div>
+          </div>
+
+          <!-- loading -->
+          <div class="ng-hide" ng-show="resultState === 'loading'">
+            <div class="discover-overlay">
+              <h2>Searching</h2>
+              <div class="spinner large"><div class="bounce1"></div> <div class="bounce2"></div> <div class="bounce3"></div></div>
+              <div class="ng-binding ng-hide" ng-show="fetchStatus">/</div>
+            </div>
+          </div>
+
+          <!-- result -->
+          <div class="results" ng-show="resultState === 'ready'">
+            <!-- ngIf: opts.timefield --><div class="discover-timechart ng-scope" ng-if="opts.timefield">
+              <header>
+                <center class="small">
+                  <span class="ng-binding" tooltip="To change the time, click the clock icon in the navigation bar">April 17th 2016, 16:31:53.542 - April 17th 2016, 16:46:53.542</span>
+
+                  —
+
+                  <span class="results-interval" ng-hide="showInterval">
+                    <a class="ng-binding" ng-click="toggleInterval()">
+                      by 30 seconds
+                    </a>
+                  </span>
+
+                  <span ng-show="showInterval" class="results-interval form-inline ng-hide">
+                    <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="state.interval" ng-options="interval.val as interval.display for interval in intervalOptions | filter: intervalEnabled"><option selected="selected" value="string:auto" label="Auto">Auto</option><option value="string:s" label="Second">Second</option><option value="string:m" label="Minute">Minute</option><option value="string:h" label="Hourly">Hourly</option><option value="string:d" label="Daily">Daily</option><option value="string:w" label="Weekly">Weekly</option><option value="string:M" label="Monthly">Monthly</option><option value="string:y" label="Yearly">Yearly</option></select>
+                  </span>
+                </center>
+
+              </header>
+
+              <!-- ngIf: vis && rows.length != 0 --><visualize class="ng-scope ng-isolate-scope" ng-if="vis &amp;&amp; rows.length != 0" vis="vis" es-resp="mergedEsResp" ui-state="uiState" search-source="searchSource"><!-- ngIf: showNoResultsMessage() -->
+<div ng-hide="showNoResultsMessage()" class="vis-container">
+  <div style="transition-delay: 2s;" ng-style="loadingStyle" ng-class="{ loading: vis.type.requiresSearch &amp;&amp; searchSource.activeFetchCount &gt; 0 }" class="visualize-chart">
+  <div class="vis-wrapper"><div class="y-axis-col-wrapper"><div class="y-axis-col"><div class="y-axis-title"><svg height="132" width="14"><text text-anchor="middle" transform="translate(11,66)rotate(-90)">Count</text></svg></div><div style="width: 37.75px;" class="y-axis-div-wrapper"><div class="y-axis-div"><svg height="132" width="38"><g transform="translate(36,10)" class="y axis"><g transform="translate(0,117)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">0</text></g><g transform="translate(0,94.5)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">50</text></g><g transform="translate(0,72)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">100</text></g><g transform="translate(0,49.50000000000001)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">150</text></g><g transform="translate(0,26.999999999999996)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">200</text></g><g transform="translate(0,4.499999999999997)" style="opacity: 1;" class="tick"><line y2="0" x2="-6"></line><text y="0" x="-9" style="text-anchor: end;" dy=".32em">250</text></g><path d="M-6,0H0V117H-6" class="domain"></path></g></svg></div></div></div><div class="y-axis-spacer-block"><div style="height: 45px;" class="inner-spacer-block"></div></div></div><div class="vis-col-wrapper"><div class="chart-wrapper"><div class="chart"><svg height="132" width="967"><g transform="translate(0,10)"><g style="pointer-events: all;" class="brush"><rect height="117" width="967" x="0" style="visibility: hidden; cursor: crosshair;" class="background"></rect><rect height="117" width="0" x="0" style="cursor: move;" class="extent"></rect><g transform="translate(0,0)" style="cursor: ew-resize; display: none;" class="resize e"><rect style="visibility: hidden;" height="117" width="6" x="-3"></rect></g><g transform="translate(0,0)" style="cursor: ew-resize; display: none;" class="resize w"><rect style="visibility: hidden;" height="117" width="6" x="-3"></rect></g></g><g class="series 0"><rect height="0" y="117" width="23.39516129032258" x="0" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="31.193548387096772" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="62.387096774193544" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="93.58064516129032" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="124.77419354838709" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="155.96774193548387" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="187.16129032258064" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="218.3548387096774" fill="#57c17b" data-label="Count"></rect><rect height="113.85" y="3.1500000000000017" width="23.39516129032258" x="249.54838709677418" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="280.741935483871" fill="#57c17b" data-label="Count"></rect><rect height="114.3" y="2.7000000000000033" width="23.39516129032258" x="311.93548387096774" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="343.1290322580645" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="374.3225806451613" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="405.5161290322581" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="436.7096774193548" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="467.90322580645164" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="499.09677419354836" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="530.2903225806451" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="561.483870967742" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="592.6774193548388" fill="#57c17b" data-label="Count"></rect><rect height="114.3" y="2.7000000000000033" width="23.39516129032258" x="623.8709677419355" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="655.0645161290322" fill="#57c17b" data-label="Count"></rect><rect height="114.3" y="2.7000000000000033" width="23.39516129032258" x="686.258064516129" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="717.4516129032259" fill="#57c17b" data-label="Count"></rect><rect height="114.3" y="2.7000000000000033" width="23.39516129032258" x="748.6451612903226" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="779.8387096774193" fill="#57c17b" data-label="Count"></rect><rect height="113.85" y="3.1500000000000017" width="23.39516129032258" x="811.0322580645162" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="842.2258064516129" fill="#57c17b" data-label="Count"></rect><rect height="113.85" y="3.1500000000000017" width="23.39516129032258" x="873.4193548387096" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="904.6129032258063" fill="#57c17b" data-label="Count"></rect><rect height="0" y="117" width="23.39516129032258" x="935.8064516129033" fill="#57c17b" data-label="Count"></rect></g><g class="endzone"><rect width="24.60339139784946" height="117" y="0" x="0" class="zone"></rect></g><g class="endzone"><rect width="6.589117204301033" height="117" y="0" x="960.410882795699" class="zone"></rect></g><line style="stroke: rgb(221, 221, 221); stroke-width: 1;" y2="117" x2="967" y1="117" x1="0" class="base-line"></line><line y2="0" y1="117" x2="961.1501698924731" x1="961.1501698924731" stroke-opacity="0.3" stroke-width="2" stroke="#c80000" pointer-events="none" class="time-marker"></line></g></svg></div></div><div class="vis-alerts"></div><div class="x-axis-wrapper"><div class="x-axis-div-wrapper"><div class="x-axis-div"><svg height="20" width="967"><g transform="translate(0,0)" class="x axis"><g transform="translate(31.193548387096772,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:32:00</text></g><g transform="translate(93.58064516129032,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:33:00</text></g><g transform="translate(155.96774193548387,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:34:00</text></g><g transform="translate(218.3548387096774,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:35:00</text></g><g transform="translate(280.741935483871,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:36:00</text></g><g transform="translate(343.1290322580645,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:37:00</text></g><g transform="translate(405.5161290322581,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:38:00</text></g><g transform="translate(467.90322580645164,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:39:00</text></g><g transform="translate(530.2903225806451,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:40:00</text></g><g transform="translate(592.6774193548388,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:41:00</text></g><g transform="translate(655.0645161290322,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:42:00</text></g><g transform="translate(717.4516129032259,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:43:00</text></g><g transform="translate(779.8387096774193,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:44:00</text></g><g transform="translate(842.2258064516129,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:45:00</text></g><g transform="translate(904.6129032258063,0)" style="opacity: 1;" class="tick"><line x2="0" y2="6"></line><text x="0" y="9" style="text-anchor: middle;" dy=".71em">16:46:00</text></g><path d="M0,6V0H967V6" class="domain"></path></g></svg></div></div><div class="x-axis-title"><svg height="15" width="967"><text text-anchor="middle" transform="translate(483.5,11)">@timestamp per 30 seconds</text></svg></div></div></div></div></div>
+  <visualize-legend><!-- ngIf: labels.length --><div class="legend-col-wrapper ng-scope" ng-if="labels.length">
+  <div ng-click="toggleLegend()" class="legend-toggle">
+    <i class="fa fa-chevron-left" ng-class="open ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+  </div>
+  <ul class="legend-ul ng-hide" ng-show="open">
+
+    <!-- ngRepeat: legendData in labels track by legendData.label --><li style="opacity: 1;" ng-repeat="legendData in labels track by legendData.label" ng-mouseenter="highlight($event)" ng-mouseleave="unhighlight($event)" data-label="Count" class="legend-value color ng-scope">
+
+      <div class="legend-value-container">
+        <div ng-click="showDetails = !showDetails" ng-class="showDetails ? 'legend-value-full' : 'legend-value-truncate'" class="legend-value-title ng-binding legend-value-truncate">
+          <i style="color: rgb(87, 193, 123);" class="fa fa-circle" ng-style="{color: getColor(legendData.label)}"></i> Count
+        </div>
+
+        <!-- ngIf: showDetails -->
+      </div>
+
+    </li><!-- end ngRepeat: legendData in labels track by legendData.label -->
+  </ul>
+</div><!-- end ngIf: labels.length -->
+</visualize-legend>
+</div>
+<!-- <pre>{{chartData | json}}</pre> -->
+<!-- ngIf: vis.type.requiresSearch && showSpyPanel --><visualize-spy class="ng-scope" ng-if="vis.type.requiresSearch &amp;&amp; showSpyPanel"><div ng-click="toggleDisplay()" class="visualize-show-spy">
+  <div class="visualize-show-spy-tab">
+    <i class="fa fa-chevron-up" ng-class="spy.mode.name ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
+  </div>
+</div>
+<div ng-show="spy.mode.name" class="visualize-spy-container ng-hide">
+  <header class="control-group">
+    <div class="fill visualize-spy-nav">
+      <!-- ngRepeat: mode in modes.inOrder --><a class="btn btn-default ng-binding ng-scope" ng-repeat="mode in modes.inOrder" ng-class="{ active: spy.mode.name === mode.name }" ng-click="setSpyMode(mode.name)">
+        Table
+      </a><!-- end ngRepeat: mode in modes.inOrder --><a class="btn btn-default ng-binding ng-scope" ng-repeat="mode in modes.inOrder" ng-class="{ active: spy.mode.name === mode.name }" ng-click="setSpyMode(mode.name)">
+        Request
+      </a><!-- end ngRepeat: mode in modes.inOrder --><a class="btn btn-default ng-binding ng-scope" ng-repeat="mode in modes.inOrder" ng-class="{ active: spy.mode.name === mode.name }" ng-click="setSpyMode(mode.name)">
+        Response
+      </a><!-- end ngRepeat: mode in modes.inOrder --><a class="btn btn-default ng-binding ng-scope" ng-repeat="mode in modes.inOrder" ng-class="{ active: spy.mode.name === mode.name }" ng-click="setSpyMode(mode.name)">
+        Statistics
+      </a><!-- end ngRepeat: mode in modes.inOrder -->
+    </div>
+    <div class="button-group visualize-spy-fill">
+      <a ng-click="toggleFullPage()">
+        <!-- ngIf: !spy.mode.fill --><i ng-if="!spy.mode.fill" class="fa fa-expand ng-scope"></i><!-- end ngIf: !spy.mode.fill -->
+        <!-- ngIf: spy.mode.fill -->
+      </a>
+    </div>
+  </header>
+</div></visualize-spy><!-- end ngIf: vis.type.requiresSearch && showSpyPanel -->
+</visualize><!-- end ngIf: vis && rows.length != 0 -->
+            </div><!-- end ngIf: opts.timefield -->
+
+            <div style="padding-bottom: 0px;" class="discover-table" fixed-scroll="">
+              <doc-table class="ng-isolate-scope" hits="rows" index-pattern="indexPattern" sorting="state.sort" columns="state.columns" infinite-scroll="true" filter="filterQuery"><!-- ngIf: hits.length --><div class="ng-scope" ng-if="hits.length" ng-class="{ loading: searchSource.activeFetchCount &gt; 0 }">
+  <!-- ngIf: !infiniteScroll -->
+
+  <!-- ngIf: infiniteScroll --><table ng-if="infiniteScroll" class="kbn-table table ng-scope">
+    <thead class="ng-isolate-scope" kbn-table-header="" columns="columns" index-pattern="indexPattern" sorting="sorting"><tr>
+  <th width="1%"></th>
+  <!-- ngIf: indexPattern.timeFieldName --><th class="ng-scope" ng-if="indexPattern.timeFieldName">
+    <span>Time <i class="fa fa-sort-down" ng-class="headerClass(indexPattern.timeFieldName)" ng-click="sort(indexPattern.timeFieldName)" tooltip="Sort by time"></i></span>
+  </th><!-- end ngIf: indexPattern.timeFieldName -->
+  <!-- ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      beat.hostname <i class="fa fa-sort-up table-header-sortchange" ng-class="headerClass(name)" ng-click="sort(name)" tooltip="Sort by beat.hostname" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left ng-hide" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      _id <i ng-class="headerClass(name)" ng-click="sort(name)" tooltip="" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      _score <i class="fa fa-sort-up table-header-sortchange" ng-class="headerClass(name)" ng-click="sort(name)" tooltip="Sort by _score" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      proc.cpu.start_time <i class="fa fa-sort-up table-header-sortchange" ng-class="headerClass(name)" ng-click="sort(name)" tooltip="Sort by proc.cpu.start_time" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      type <i class="fa fa-sort-up table-header-sortchange" ng-class="headerClass(name)" ng-click="sort(name)" tooltip="Sort by type" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns --><th class="ng-scope" ng-repeat="name in columns">
+    <span class="table-header-name ng-binding">
+      fs.files <i class="fa fa-sort-up table-header-sortchange" ng-class="headerClass(name)" ng-click="sort(name)" tooltip="Sort by fs.files" tooltip-append-to-body="1"></i>
+    </span>
+    <span class="table-header-move">
+      <i ng-click="toggleColumn(name)" ng-show="canRemove(name)" class="fa fa-remove" tooltip="Remove column" tooltip-append-to-body="1"></i>
+      <i ng-click="moveLeft(name)" class="fa fa-angle-double-left" ng-show="!$first" tooltip="Move column to the left" tooltip-append-to-body="1"></i>
+      <i ng-click="moveRight(name)" class="fa fa-angle-double-right ng-hide" ng-show="!$last" tooltip="Move column to the right" tooltip-append-to-body="1"></i>
+    </span>
+  </th><!-- end ngRepeat: name in columns -->
+</tr></thead>
+    <tbody>
+      <!-- ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.833</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7_</td><td class="discover-table-datafield"></td><td class="discover-table-datafield"> - </td><td class="discover-table-datafield">filesystem</td><td class="discover-table-datafield">0</td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.833</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN79</td><td class="discover-table-datafield"></td><td class="discover-table-datafield"> - </td><td class="discover-table-datafield">filesystem</td><td class="discover-table-datafield">121,796,094</td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.833</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN8A</td><td class="discover-table-datafield"></td><td class="discover-table-datafield"> - </td><td class="discover-table-datafield">filesystem</td><td class="discover-table-datafield">0</td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.833</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7-</td><td class="discover-table-datafield"></td><td class="discover-table-datafield"> - </td><td class="discover-table-datafield">filesystem</td><td class="discover-table-datafield">1,152</td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.833</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7uD-PTCGIuudIN8D</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.832</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN78</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.832</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7uD-PTCGIuudIN8C</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.832</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7uD-PTCGIuudIN8B</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.830</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN77</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.830</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN76</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.829</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN75</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.829</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN72</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.829</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN73</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.829</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN74</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.829</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN71</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.828</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7z</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.828</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7y</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.828</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN70</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.818</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7t</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.818</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7x</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.818</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7u</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.818</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7w</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.818</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7v</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.817</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7q</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.817</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7r</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.817</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7s</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.816</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7m</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.816</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7n</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.816</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7p</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.816</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7l</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.816</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7o</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.815</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7g</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.815</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7j</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.815</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7h</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.815</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7i</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.815</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7k</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7e</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7d</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7f</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7a</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7b</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.814</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7c</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.813</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7Z</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.813</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7Y</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.813</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7X</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.813</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7W</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.812</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7S</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.812</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7T</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.812</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7U</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score --><tr ng-repeat="row in hits|limitTo:limit track by row._index+row._type+row._id+row._score" kbn-table-row="row" columns="columns" sorting="sorting" index-pattern="indexPattern" filter="filter" class="discover-table-row ng-scope ng-isolate-scope"><td class="ng-scope" ng-click="toggleRow()">
+  <i class="fa discover-table-open-icon fa-caret-right" ng-class="{ 'fa-caret-down': open, 'fa-caret-right': !open }">
+  </i>
+</td><td class="discover-table-timefield" width="1%">April 17th 2016, 16:45:37.812</td><td class="discover-table-datafield">Anmol.local</td><td class="discover-table-datafield">AVQj7t7tPTCGIuudIN7V</td><td class="discover-table-datafield"></td><td class="discover-table-datafield">Mar13</td><td class="discover-table-datafield">process</td><td class="discover-table-datafield"></td></tr><tr></tr><!-- end ngRepeat: row in hits|limitTo:limit track by row._index+row._type+row._id+row._score -->
+    </tbody>
+  </table><!-- end ngIf: infiniteScroll -->
+  <!-- ngIf: infiniteScroll --><kbn-infinite-scroll class="ng-scope ng-isolate-scope" ng-if="infiniteScroll" more="addRows"></kbn-infinite-scroll><!-- end ngIf: infiniteScroll -->
+</div><!-- end ngIf: hits.length -->
+<!-- ngIf: hits != null && !hits.length --></doc-table>
+
+              <!-- ngIf: rows.length == opts.sampleSize --><div ng-if="rows.length == opts.sampleSize" class="discover-table-footer ng-scope">
+                <center class="ng-binding">
+                  These are the first 500 documents matching
+                  your search, refine your search to see others.
+                  <a ng-click="toTop()" title="Back to top">Back to top.</a>
+                </center>
+              </div><!-- end ngIf: rows.length == opts.sampleSize -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><div style="visibility: hidden; left: -500px; top: -500px;" class="vis-tooltip"><table class="ng-scope">
+  <tbody>
+    <!-- ngRepeat: detail in details --><tr class="ng-scope" ng-repeat="detail in details">
+      <td><b class="ng-binding">Count</b></td>
+      <td class="ng-binding">
+          254
+          <!-- ngIf: detail.percent -->
+      </td>
+    </tr><!-- end ngRepeat: detail in details --><tr class="ng-scope" ng-repeat="detail in details">
+      <td><b class="ng-binding">@timestamp per 30 seconds</b></td>
+      <td class="ng-binding">
+          April 17th 2016, 16:41:30.000
+          <!-- ngIf: detail.percent -->
+      </td>
+    </tr><!-- end ngRepeat: detail in details -->
+  </tbody>
+</table></div><div style="visibility: hidden; left: -500px; top: -500px;" class="vis-tooltip-sizing-clone"><table class="ng-scope">
+  <tbody>
+    <!-- ngRepeat: detail in details --><tr class="ng-scope" ng-repeat="detail in details">
+      <td><b class="ng-binding">Count</b></td>
+      <td class="ng-binding">
+          254
+          <!-- ngIf: detail.percent -->
+      </td>
+    </tr><!-- end ngRepeat: detail in details --><tr class="ng-scope" ng-repeat="detail in details">
+      <td><b class="ng-binding">@timestamp per 30 seconds</b></td>
+      <td class="ng-binding">
+          April 17th 2016, 16:41:30.000
+          <!-- ngIf: detail.percent -->
+      </td>
+    </tr><!-- end ngRepeat: detail in details -->
+  </tbody>
+</table></div></body></html>
